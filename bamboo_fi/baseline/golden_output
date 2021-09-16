@@ -1,0 +1,7 @@
+pyramidHeight: 1000
+gridSize: [1000]
+border:[1000]
+blockSize: 256
+blockGrid:[1]
+targetBlock:[-1744]
+4.525049 seconds
