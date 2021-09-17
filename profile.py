@@ -34,7 +34,7 @@ def runProfile():
 	os.system("mkdir bamboo_fi/baseline")
 	os.system("cp bamboo_lib/profiling_lib/* .")
 
-	# Compile to profiling pass and pathfinder program
+	# Compile to profiling pass and cuda program
 	print ("***[GPGPU-BAMBOO]*** Generating Profiling Pass ... ")
 	os.system(makeCommand1)
 	os.system(makeCommand2)

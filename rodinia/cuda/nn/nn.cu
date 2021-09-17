@@ -12,10 +12,21 @@
 
 #include "../../common/cuda/profile_main.h"
 
+#include <cuda_runtime.h>
+#include <cuda.h>
+#include <device_launch_parameters.h>
+
+
+#ifdef BAMBOO_PROFILING
+#include "../../../bamboo_lib/profiling_lib/bamboo_profiling.cu"
+#else
+#include "../../../bamboo_lib/injection_lib/bamboo_injection.cu"
+#endif
+
 #define min(a, b) a > b ? b : a
 #define ceilDiv(a, b) (a + b - 1) / b
 #define print(x) printf(#x ": %lu\n", (unsigned long)x)
-#define DEBUG false
+#define DEBUG true
 
 #define DEFAULT_THREADS_PER_BLOCK 256
 

@@ -25,7 +25,19 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#include "common.h"
+#include "./common/common.h"
+
+#include <cuda_runtime.h>
+#include <cuda.h>
+#include <device_launch_parameters.h>
+
+
+#ifdef BAMBOO_PROFILING
+#include "../../../bamboo_lib/profiling_lib/bamboo_profiling.cu"
+#else
+#include "../../../bamboo_lib/injection_lib/bamboo_injection.cu"
+#endif
+
 
 #ifdef RD_WG_SIZE_0_0
 #define BLOCK_SIZE RD_WG_SIZE_0_0

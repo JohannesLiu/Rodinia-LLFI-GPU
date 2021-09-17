@@ -11,7 +11,7 @@ bitIndex = "" # 63 or ""
 #############################################################################
 #flagHeader = staticInstIndex + " CICC_MODIFY_OPT_MODULE=1 LD_PRELOAD=./libnvcc.so nvcc -arch=sm_30 -rdc=true -dc -g -G -Xptxas -O0 -D BAMBOO_PROFILING"
 flagHeader = staticInstIndex + "CICC_MODIFY_OPT_MODULE=1 LD_PRELOAD=./libnvcc.so \
-    	/usr/local/pathfinder/bin/nvcc -isystem /usr/include -isystem /root/rodinia/common/pathfinder/\
+    	/usr/local/pathfinder/bin/nvcc -isystem /usr/include -isystem /root/rodinia/common/cuda/\
         -arch=sm_30 -rdc=true -dc -g -G -Xptxas -O0 -D BAMBOO_PROFILING \
         --generate-line-info -Xcompiler \
         -lnvToolsExt -lcuda -lnvToolsExt"
@@ -40,7 +40,7 @@ def runProfile():
 	os.system("mkdir bamboo_fi/baseline")
 	os.system("cp bamboo_lib/profiling_lib/* .")
 
-	# Compile to profiling pass and pathfinder program
+	# Compile to profiling pass and cuda program
 	print ("***[GPGPU-BAMBOO]*** Generating Profiling Pass ... ")
 	print(makeCommand1)
 	os.system(makeCommand1)

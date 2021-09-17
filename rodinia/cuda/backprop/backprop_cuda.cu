@@ -14,6 +14,18 @@
 
 #include "../../common/cuda/profile_main.h"
 
+#include <cuda_runtime.h>
+#include <cuda.h>
+#include <device_launch_parameters.h>
+
+
+#ifdef BAMBOO_PROFILING
+#include "../../../bamboo_lib/profiling_lib/bamboo_profiling.cu"
+#else
+#include "../../../bamboo_lib/injection_lib/bamboo_injection.cu"
+#endif
+
+
 ////////////////////////////////////////////////////////////////////////////////
 
 extern "C" void bpnn_layerforward(float *l1, float *l2, float **conn, int n1,
